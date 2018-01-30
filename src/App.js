@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import About from './components/About';
 import Home from './components/Home';
 import Contact from './components/Contact';
@@ -14,13 +14,20 @@ class App extends Component {
                     <nav className="navbar navbar-inverse">
                         <ul className="nav navbar-nav">
                             <li>
-                                <Link to="/" className ="my-link">Home</Link>
+                                <NavLink activeClassName="active"
+                                // activeStyle = {{
+                                //     backgroundColor: 'white',
+                                //     color: 'red'
+                                // }}
+                                 exact to="/" className ="my-link">Home</NavLink>
                             </li>
                             <li>
-                                <Link to="/about">About</Link>
+                                <NavLink activeClassName = "active"
+                                     exact to="/about">About</NavLink>
                             </li>
                             <li>
-                                <Link to="/contact">Contact</Link>
+                                <NavLink ativeClassName = "active" 
+                                    exact to="/contact">Contact</NavLink>
                             </li>
                         </ul>
                     </nav>
