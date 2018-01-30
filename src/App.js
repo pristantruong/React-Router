@@ -1,13 +1,28 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import About from './components/About';
-import Home from './components/Home';
-import Contact from './components/Contact';
-import NotFound from './components/NotFound';
 import Menu from './components/Menu';
+import routes from './routes'; 
 
 class App extends Component {
+
+    showContentMenu = (routes) =>{
+        var result = null;
+        if (routes.length > 0){
+            result = routes.map((route, index)=>{
+                return (
+                    <Route
+                        key={index}
+                        path={route.path}
+                        exact={route.exact}
+                        component={route.main} 
+                    />
+                );
+            })
+        }
+        return result; 
+    }
+
     render() {
         return (
             <Router>
@@ -16,10 +31,7 @@ class App extends Component {
                     <Menu />
                     {/* Content */}
                     <Switch>
-                        <Route path="/" exact component={Home} />
-                        <Route path="/about" component={About} />
-                        <Route path="/contact" component={Contact} />
-                        <Route component={NotFound} />
+                        {this.showContentMenu(routes)}
                     </Switch>
                 </div>
             </Router>
