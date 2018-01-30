@@ -26,9 +26,3 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
-.active {
-  /* ghi đè css boostrap phải có !importain */
-  background-color: white !important; 
-  color: red !important
-}
