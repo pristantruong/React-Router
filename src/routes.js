@@ -3,6 +3,7 @@ import About from './components/About';
 import Home from './components/Home';
 import Contact from './components/Contact';
 import NotFound from './components/NotFound';
+import Products from './components/Products';
 
 const routes = [
     {
@@ -21,10 +22,16 @@ const routes = [
         main: () => <Contact />
     },
     {
+        path: '/products',
+        exact: false,
+        main: ({match}) => <Products match={match}/>
+    }, 
+    {
         path: '',
         exact: false,
         main: () => <NotFound />
     },
+  
 ];
 
 export default routes;

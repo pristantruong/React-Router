@@ -17,6 +17,11 @@ const menus = [
         to: '/contact',
         exact: false
     },
+    {
+        name: 'Product',
+        to: '/products',
+        exact: false
+    },
 ]
 
 const MenuLink = ({ label, to, activeOnlyWhenExact }) => {
@@ -45,7 +50,7 @@ class Menu extends Component {
 
     showMenus = (menus) => {
         var result = null;
-        if (menus.lenght > 0) {
+        if (menus.length > 0) {
             result = menus.map((menu, index) => {
                 return (
                     <MenuLink
@@ -55,7 +60,7 @@ class Menu extends Component {
                         activeOnlyWhenExact={menu.exact}
                     />
                 )
-            })
+            });
         }
         return result;
     }
@@ -65,9 +70,6 @@ class Menu extends Component {
             <nav className="navbar navbar-default">
                 <ul className="nav navbar-nav">
                     {this.showMenus(menus)}
-                    <MenuLink label="Home" to="/" activeOnlyWhenExact={true} />
-                    <MenuLink label="About" to="/about" activeOnlyWhenExact={false} />
-                    <MenuLink label="Contact" to="/contact" activeOnlyWhenExact={false} />
                 </ul>
             </nav>
         );
