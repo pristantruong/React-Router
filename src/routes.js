@@ -25,19 +25,19 @@ const routes = [
     {
         path: '/products',
         exact: false,
-        main: ({match}) => <Products match={match}/>
-    }, 
+        main: ({ match, location }) => <Products match={match} location={location} />
+    },
     {
         path: '/login',
         exact: false,
-        main: () => <Login />
-    }, 
+        main: ({ location }) => <Login location={location} />
+    },
     {
         path: '',
         exact: false,
         main: () => <NotFound />
     },
-  
+
 ];
 
 export default routes;
